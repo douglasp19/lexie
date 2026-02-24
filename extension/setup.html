@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Configurar Microfone - Lexie</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;600&display=swap');
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #FAFAF7;
+            color: #1A1F1A;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        .card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            max-width: 400px;
+            border: 1px solid #E8E8E0;
+        }
+        h2 { font-family: 'Playfair Display', serif; color: #4CAF50; margin-top: 0; }
+        p { color: #4A5A4A; line-height: 1.6; font-size: 0.95rem; margin-bottom: 2rem; }
+        button {
+            background: #4CAF50; color: white; border: none; padding: 0.8rem 1.5rem;
+            border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer;
+            font-family: 'DM Sans', sans-serif; transition: 0.2s;
+        }
+        button:hover { background: #388E3C; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Permissão de Áudio</h2>
+        <p>A Lexie precisa do seu microfone para escutar sua voz durante a consulta e gerar um relatório completo e preciso.</p>
+        <button id="btn-allow">Permitir Microfone</button>
+    </div>
+    <script src="setup.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
+
+  :root {
+    --green: #4CAF50;
+    --green-light: #E8F5E9;
+    --orange: #F4A261;
+    --bg: #FAFAF7;
+    --surface2: #F5F5F0;
+    --border: #E8E8E0;
+    --text: #1A1F1A;
+    --text3: #8A9A8A;
+    --radius: 12px;
+  }
+
+  body {
+    width: 280px;
+    margin: 0;
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  /* Reaproveitando suas classes exatas */
+  .ext-header { display: flex; align-items: center; justify-content: space-between; padding: 0.875rem 1rem; border-bottom: 1px solid var(--border); background: white; }
+  .ext-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--green); }
+  .ext-badge { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.2rem 0.55rem; border-radius: 99px; }
+  .ext-badge.idle { background: var(--surface2); color: var(--text3); }
+  .ext-badge.rec { background: rgba(229,62,62,0.1); color: #E53E3E; animation: blink 1.5s infinite; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.5} }
+  
+  .ext-body { padding: 1rem; display: flex; flex-direction: column; gap: 0.875rem; }
+  .ext-field { display: flex; flex-direction: column; gap: 0.3rem; }
+  .ext-label { font-size: 0.68rem; font-weight: 700; color: var(--text3); text-transform: uppercase; letter-spacing: 0.07em; }
+  .ext-input { padding: 0.5rem 0.75rem; border: 1.5px solid var(--border); border-radius: 8px; font-size: 0.82rem; color: var(--text); background: white; font-family: 'DM Mono', monospace; }
+  
+  .ext-timer { display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.625rem 0.875rem; background: rgba(229,62,62,0.06); border: 1px solid rgba(229,62,62,0.2); border-radius: 8px; }
+  .timer-dot { width: 8px; height: 8px; border-radius: 50%; background: #E53E3E; animation: blink 1s infinite; }
+  .timer-num { font-family: 'DM Mono', monospace; font-size: 1.2rem; font-weight: 600; color: #E53E3E; }
+  
+  .btn-start { width: 100%; padding: 0.7rem; background: var(--green); color: white; border: none; border-radius: 8px; font-size: 0.88rem; font-weight: 700; cursor: pointer; font-family: 'DM Sans', sans-serif; }
+  .btn-stop { width: 100%; padding: 0.7rem; background: rgba(244,162,97,0.1); color: var(--orange); border: 1.5px solid var(--orange); border-radius: 8px; font-size: 0.88rem; font-weight: 700; cursor: pointer; font-family: 'DM Sans', sans-serif; }
+  .ext-footer { text-align: center; padding: 0 1rem 1rem; font-size: 0.72rem; }
+  .ext-footer a { color: var(--green); text-decoration: none; font-weight: 600; }
+</style>
+</head>
+<body>
+
+  <div id="view-idle">
+    <div class="ext-header">
+      <span class="ext-logo">Lexie</span>
+      <span class="ext-badge idle">Parado</span>
+    </div>
+    <div class="ext-body">
+      <div class="ext-field">
+        <span class="ext-label">ID da Sessão</span>
+        <input class="ext-input" id="session-id" value="Gerando..." readonly />
+      </div>
+      <button class="btn-start" id="btn-start">🎙 Iniciar Gravação</button>
+    </div>
+    <div class="ext-footer">
+      <a href="http://localhost:4200" target="_blank">Abrir Lexie ↗</a>
+    </div>
+  </div>
+
+  <div id="view-recording" style="display: none;">
+    <div class="ext-header">
+      <span class="ext-logo">Lexie</span>
+      <span class="ext-badge rec">● Gravando</span>
+    </div>
+    <div class="ext-body">
+      <div class="ext-timer">
+        <div class="timer-dot"></div>
+        <span class="timer-num" id="timer">00:00</span>
+      </div>
+      <button class="btn-stop" id="btn-stop">⏹ Parar e Enviar</button>
+    </div>
+    <div class="ext-footer">
+      <a href="http://localhost:4200" target="_blank">Abrir Lexie ↗</a>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
